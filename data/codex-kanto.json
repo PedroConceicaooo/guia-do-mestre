@@ -1,0 +1,1453 @@
+{
+ "_fonte": "/api/game/codex?region=kanto (estrutura) + /api/game/map-markers (nivel, area, raridade, valor)",
+ "_confiavel": true,
+ "_nota": "Progresso pessoal nao incluido: cada visitante marca no proprio navegador.",
+ "regiao": "kanto",
+ "label": "Kanto",
+ "maxTier": 4,
+ "grupos": [
+  {
+   "id": 1,
+   "atributo": "spd",
+   "especies": [
+    {
+     "id": 63,
+     "nome": "Abra",
+     "slug": "abra",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 800
+    },
+    {
+     "id": 93,
+     "nome": "Haunter",
+     "slug": "haunter",
+     "nv": 50,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 8000
+    },
+    {
+     "id": 17,
+     "nome": "Pidgeotto",
+     "slug": "pidgeotto",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 1500
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "atributo": "atk",
+   "especies": [
+    {
+     "id": 142,
+     "nome": "Aerodactyl",
+     "slug": "ancient_aerodactyl",
+     "nv": 80,
+     "mapa": "safari",
+     "raridade": "COMMON",
+     "valor": 13000
+    },
+    {
+     "id": 107,
+     "nome": "Hitmonchan",
+     "slug": "hitmonchan",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 30000
+    },
+    {
+     "id": 16,
+     "nome": "Pidgey",
+     "slug": "pidgey",
+     "nv": 1,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 80
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "atributo": "satk",
+   "especies": [
+    {
+     "id": 65,
+     "nome": "Alakazam",
+     "slug": "alakazam",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 15800
+    },
+    {
+     "id": 106,
+     "nome": "Hitmonlee",
+     "slug": "hitmonlee",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 30000
+    },
+    {
+     "id": 25,
+     "nome": "Pikachu",
+     "slug": "pikachu",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 8000
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "atributo": "def",
+   "especies": [
+    {
+     "id": 24,
+     "nome": "Arbok",
+     "slug": "arbok",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 3000
+    },
+    {
+     "id": 97,
+     "nome": "Hypno",
+     "slug": "hypno",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 11000
+    },
+    {
+     "id": 204,
+     "nome": "Pineco",
+     "slug": "pineco",
+     "nv": 300,
+     "mapa": "johto",
+     "raridade": "COMMON",
+     "valor": 300
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "atributo": "hp",
+   "especies": [
+    {
+     "id": 59,
+     "nome": "Arcanine",
+     "slug": "arcanine",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 29250
+    },
+    {
+     "id": 2,
+     "nome": "Ivysaur",
+     "slug": "ivysaur",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 8000
+    },
+    {
+     "id": 127,
+     "nome": "Pinsir",
+     "slug": "pinsir",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 40000
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "atributo": "sdef",
+   "especies": [
+    {
+     "id": 15,
+     "nome": "Beedrill",
+     "slug": "beedrill",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 2000
+    },
+    {
+     "id": 39,
+     "nome": "Jigglypuff",
+     "slug": "jigglypuff",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 8000
+    },
+    {
+     "id": 60,
+     "nome": "Poliwag",
+     "slug": "poliwag",
+     "nv": 1,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 80
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "atributo": "spd",
+   "especies": [
+    {
+     "id": 69,
+     "nome": "Bellsprout",
+     "slug": "bellsprout",
+     "nv": 1,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 80
+    },
+    {
+     "id": 124,
+     "nome": "Jynx",
+     "slug": "jynx",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 60000
+    },
+    {
+     "id": 61,
+     "nome": "Poliwhirl",
+     "slug": "poliwhirl",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 3000
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "atributo": "def",
+   "especies": [
+    {
+     "id": 9,
+     "nome": "Blastoise",
+     "slug": "ancient_blastoise",
+     "nv": 80,
+     "mapa": "safari",
+     "raridade": "COMMON",
+     "valor": 18000
+    },
+    {
+     "id": 140,
+     "nome": "Kabuto",
+     "slug": "kabuto",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 20000
+    },
+    {
+     "id": 62,
+     "nome": "Poliwrath",
+     "slug": "poliwrath",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 13000
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "atributo": "atk",
+   "especies": [
+    {
+     "id": 1,
+     "nome": "Bulbasaur",
+     "slug": "bulbasaur",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "RARE",
+     "valor": 3000
+    },
+    {
+     "id": 141,
+     "nome": "Kabutops",
+     "slug": "kabutops",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 37500
+    },
+    {
+     "id": 77,
+     "nome": "Ponyta",
+     "slug": "ponyta",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 1500
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "atributo": "satk",
+   "especies": [
+    {
+     "id": 12,
+     "nome": "Butterfree",
+     "slug": "butterfree",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 2000
+    },
+    {
+     "id": 64,
+     "nome": "Kadabra",
+     "slug": "kadabra",
+     "nv": 50,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 5800
+    },
+    {
+     "id": 57,
+     "nome": "Primeape",
+     "slug": "primeape",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 5300
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "atributo": "hp",
+   "especies": [
+    {
+     "id": 10,
+     "nome": "Caterpie",
+     "slug": "caterpie",
+     "nv": 1,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 80
+    },
+    {
+     "id": 14,
+     "nome": "Kakuna",
+     "slug": "kakuna",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 250
+    },
+    {
+     "id": 54,
+     "nome": "Psyduck",
+     "slug": "psyduck",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 1500
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "atributo": "hp",
+   "especies": [
+    {
+     "id": 88,
+     "nome": "Grimer",
+     "slug": "grimer",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 300
+    },
+    {
+     "id": 89,
+     "nome": "Muk",
+     "slug": "muk",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 11000
+    },
+    {
+     "id": 108,
+     "nome": "Lickitung",
+     "slug": "lickitung",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 30000
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "atributo": "atk",
+   "especies": [
+    {
+     "id": 4,
+     "nome": "Charmander",
+     "slug": "charmander",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "RARE",
+     "valor": 3000
+    },
+    {
+     "id": 99,
+     "nome": "Kingler",
+     "slug": "kingler",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 5200
+    },
+    {
+     "id": 78,
+     "nome": "Rapidash",
+     "slug": "rapidash",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 11500
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "atributo": "sdef",
+   "especies": [
+    {
+     "id": 5,
+     "nome": "Charmeleon",
+     "slug": "charmeleon",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 8000
+    },
+    {
+     "id": 109,
+     "nome": "Koffing",
+     "slug": "koffing",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 300
+    },
+    {
+     "id": 20,
+     "nome": "Raticate",
+     "slug": "raticate",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 2000
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "atributo": "def",
+   "especies": [
+    {
+     "id": 36,
+     "nome": "Clefable",
+     "slug": "clefable",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 18000
+    },
+    {
+     "id": 98,
+     "nome": "Krabby",
+     "slug": "krabby",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 200
+    },
+    {
+     "id": 19,
+     "nome": "Rattata",
+     "slug": "rattata",
+     "nv": 1,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 80
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "atributo": "hp",
+   "especies": [
+    {
+     "id": 35,
+     "nome": "Clefairy",
+     "slug": "clefairy",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 8000
+    },
+    {
+     "id": 131,
+     "nome": "Lapras",
+     "slug": "ancient_lapras",
+     "nv": 80,
+     "mapa": "safari",
+     "raridade": "COMMON",
+     "valor": 60000
+    },
+    {
+     "id": 111,
+     "nome": "Rhyhorn",
+     "slug": "rhyhorn",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 3000
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "atributo": "atk",
+   "especies": [
+    {
+     "id": 32,
+     "nome": "Nidoran Male",
+     "slug": "nidoranma",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 125
+    },
+    {
+     "id": 56,
+     "nome": "Mankey",
+     "slug": "mankey",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 300
+    },
+    {
+     "id": 71,
+     "nome": "Victreebel",
+     "slug": "victreebel",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 12000
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "atributo": "def",
+   "especies": [
+    {
+     "id": 91,
+     "nome": "Cloyster",
+     "slug": "cloyster",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 10200
+    },
+    {
+     "id": 68,
+     "nome": "Machamp",
+     "slug": "machamp",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 17000
+    },
+    {
+     "id": 28,
+     "nome": "Sandslash",
+     "slug": "sandslash",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 11000
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "atributo": "atk",
+   "especies": [
+    {
+     "id": 104,
+     "nome": "Cubone",
+     "slug": "cubone",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 1000
+    },
+    {
+     "id": 67,
+     "nome": "Machoke",
+     "slug": "machoke",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 7000
+    },
+    {
+     "id": 123,
+     "nome": "Scyther",
+     "slug": "scyther",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 60000
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "atributo": "sdef",
+   "especies": [
+    {
+     "id": 87,
+     "nome": "Dewgong",
+     "slug": "dewgong",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 12000
+    },
+    {
+     "id": 66,
+     "nome": "Machop",
+     "slug": "machop",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 2000
+    },
+    {
+     "id": 86,
+     "nome": "Seel",
+     "slug": "seel",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 2000
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "atributo": "atk",
+   "especies": [
+    {
+     "id": 85,
+     "nome": "Dodrio",
+     "slug": "dodrio",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 5600
+    },
+    {
+     "id": 147,
+     "nome": "Dratini",
+     "slug": "dratini",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 15000
+    },
+    {
+     "id": 149,
+     "nome": "Dragonite",
+     "slug": "ancient_dragonite",
+     "nv": 80,
+     "mapa": "safari",
+     "raridade": "COMMON",
+     "valor": 62500
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "atributo": "def",
+   "especies": [
+    {
+     "id": 261,
+     "nome": "Poochyena",
+     "slug": "kanto_poochyena",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "UNCOMMON",
+     "valor": 4000
+    },
+    {
+     "id": 27,
+     "nome": "Sandshrew",
+     "slug": "sandshrew",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 1000
+    },
+    {
+     "id": 75,
+     "nome": "Graveler",
+     "slug": "graveler",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 5000
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "atributo": "hp",
+   "especies": [
+    {
+     "id": 84,
+     "nome": "Doduo",
+     "slug": "doduo",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 600
+    },
+    {
+     "id": 126,
+     "nome": "Magmar",
+     "slug": "magmar",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 60000
+    },
+    {
+     "id": 79,
+     "nome": "Slowpoke",
+     "slug": "slowpoke",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 400
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "atributo": "def",
+   "especies": [
+    {
+     "id": 80,
+     "nome": "Slowbro",
+     "slug": "slowbro",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 8000
+    },
+    {
+     "id": 90,
+     "nome": "Shellder",
+     "slug": "shellder",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 200
+    },
+    {
+     "id": 102,
+     "nome": "Exeggcute",
+     "slug": "exeggcute",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 200
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "atributo": "sdef",
+   "especies": [
+    {
+     "id": 148,
+     "nome": "Dragonair",
+     "slug": "dragonair",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 32500
+    },
+    {
+     "id": 82,
+     "nome": "Magneton",
+     "slug": "magneton",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 10400
+    },
+    {
+     "id": 143,
+     "nome": "Snorlax",
+     "slug": "snorlax",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 100000
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "atributo": "satk",
+   "especies": [
+    {
+     "id": 114,
+     "nome": "Tangela",
+     "slug": "tangela",
+     "nv": 50,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 10000
+    },
+    {
+     "id": 6,
+     "nome": "Charizard",
+     "slug": "charizard",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 18000
+    },
+    {
+     "id": 81,
+     "nome": "Magnemite",
+     "slug": "magnemite",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 400
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "atributo": "sdef",
+   "especies": [
+    {
+     "id": 72,
+     "nome": "Tentacool",
+     "slug": "tentacool",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 300
+    },
+    {
+     "id": 73,
+     "nome": "Tentacruel",
+     "slug": "tentacruel",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 10000
+    },
+    {
+     "id": 21,
+     "nome": "Spearow",
+     "slug": "spearow",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 100
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "atributo": "hp",
+   "especies": [
+    {
+     "id": 96,
+     "nome": "Drowzee",
+     "slug": "drowzee",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 1000
+    },
+    {
+     "id": 105,
+     "nome": "Marowak",
+     "slug": "marowak",
+     "nv": 50,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 11000
+    },
+    {
+     "id": 7,
+     "nome": "Squirtle",
+     "slug": "squirtle",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "RARE",
+     "valor": 3000
+    }
+   ]
+  },
+  {
+   "id": 29,
+   "atributo": "satk",
+   "especies": [
+    {
+     "id": 51,
+     "nome": "Dugtrio",
+     "slug": "dugtrio",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 3000
+    },
+    {
+     "id": 52,
+     "nome": "Meowth",
+     "slug": "meowth",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 300
+    },
+    {
+     "id": 121,
+     "nome": "Starmie",
+     "slug": "starmie",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 10000
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "atributo": "sdef",
+   "especies": [
+    {
+     "id": 23,
+     "nome": "Ekans",
+     "slug": "ekans",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 300
+    },
+    {
+     "id": 11,
+     "nome": "Metapod",
+     "slug": "metapod",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 250
+    },
+    {
+     "id": 120,
+     "nome": "Staryu",
+     "slug": "staryu",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 400
+    }
+   ]
+  },
+  {
+   "id": 31,
+   "atributo": "spd",
+   "especies": [
+    {
+     "id": 26,
+     "nome": "Raichu",
+     "slug": "raichu",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 18000
+    },
+    {
+     "id": 41,
+     "nome": "Zubat",
+     "slug": "zubat",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 120
+    },
+    {
+     "id": 50,
+     "nome": "Diglett",
+     "slug": "diglett",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 200
+    }
+   ]
+  },
+  {
+   "id": 32,
+   "atributo": "spd",
+   "especies": [
+    {
+     "id": 53,
+     "nome": "Persian",
+     "slug": "persian",
+     "nv": 50,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 3000
+    },
+    {
+     "id": 101,
+     "nome": "Electrode",
+     "slug": "electrode",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 3000
+    },
+    {
+     "id": 125,
+     "nome": "Electabuzz",
+     "slug": "electabuzz",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 60000
+    }
+   ]
+  },
+  {
+   "id": 33,
+   "atributo": "spd",
+   "especies": [
+    {
+     "id": 128,
+     "nome": "Tauros",
+     "slug": "tauros",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 5000
+    },
+    {
+     "id": 215,
+     "nome": "Sneasel",
+     "slug": "kanto_sneasel",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "UNCOMMON",
+     "valor": 10000
+    }
+   ]
+  },
+  {
+   "id": 35,
+   "atributo": "satk",
+   "especies": [
+    {
+     "id": 103,
+     "nome": "Exeggutor",
+     "slug": "exeggutor",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 10000
+    },
+    {
+     "id": 34,
+     "nome": "Nidoking",
+     "slug": "werewolf_nidoking",
+     "nv": 1,
+     "mapa": "safari",
+     "raridade": "COMMON",
+     "valor": 12250
+    },
+    {
+     "id": 49,
+     "nome": "Venomoth",
+     "slug": "venomoth",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 7250
+    }
+   ]
+  },
+  {
+   "id": 36,
+   "atributo": "def",
+   "especies": [
+    {
+     "id": 83,
+     "nome": "Farfetchd",
+     "slug": "farfetch_d",
+     "nv": 50,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 8000
+    },
+    {
+     "id": 31,
+     "nome": "Nidoqueen",
+     "slug": "nidoqueen",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 12250
+    },
+    {
+     "id": 48,
+     "nome": "Venonat",
+     "slug": "venonat",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 1500
+    }
+   ]
+  },
+  {
+   "id": 37,
+   "atributo": "atk",
+   "especies": [
+    {
+     "id": 22,
+     "nome": "Fearow",
+     "slug": "fearow",
+     "nv": 50,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 5100
+    },
+    {
+     "id": 29,
+     "nome": "Nidoran Female",
+     "slug": "nidoranfe",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 125
+    },
+    {
+     "id": 3,
+     "nome": "Venusaur",
+     "slug": "venusaur",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 18000
+    }
+   ]
+  },
+  {
+   "id": 39,
+   "atributo": "satk",
+   "especies": [
+    {
+     "id": 92,
+     "nome": "Gastly",
+     "slug": "gastly",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 3000
+    },
+    {
+     "id": 30,
+     "nome": "Nidorina",
+     "slug": "nidorina",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 2250
+    },
+    {
+     "id": 45,
+     "nome": "Vileplume",
+     "slug": "vileplume",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 12000
+    }
+   ]
+  },
+  {
+   "id": 40,
+   "atributo": "spd",
+   "especies": [
+    {
+     "id": 94,
+     "nome": "Gengar",
+     "slug": "gengar",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 18000
+    },
+    {
+     "id": 33,
+     "nome": "Nidorino",
+     "slug": "nidorino",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 2250
+    },
+    {
+     "id": 100,
+     "nome": "Voltorb",
+     "slug": "voltorb",
+     "nv": 10,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 250
+    }
+   ]
+  },
+  {
+   "id": 41,
+   "atributo": "sdef",
+   "especies": [
+    {
+     "id": 74,
+     "nome": "Geodude",
+     "slug": "geodude",
+     "nv": 1,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 300
+    },
+    {
+     "id": 38,
+     "nome": "Ninetales",
+     "slug": "ninetales",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 11000
+    },
+    {
+     "id": 37,
+     "nome": "Vulpix",
+     "slug": "vulpix",
+     "nv": 20,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 1000
+    }
+   ]
+  },
+  {
+   "id": 42,
+   "atributo": "hp",
+   "especies": [
+    {
+     "id": 44,
+     "nome": "Gloom",
+     "slug": "gloom",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 2250
+    },
+    {
+     "id": 43,
+     "nome": "Oddish",
+     "slug": "oddish",
+     "nv": 1,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 80
+    },
+    {
+     "id": 8,
+     "nome": "Wartortle",
+     "slug": "wartortle",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 8000
+    }
+   ]
+  },
+  {
+   "id": 43,
+   "atributo": "def",
+   "especies": [
+    {
+     "id": 42,
+     "nome": "Golbat",
+     "slug": "golbat",
+     "nv": 40,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 3000
+    },
+    {
+     "id": 95,
+     "nome": "Onix",
+     "slug": "onix",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 6000
+    },
+    {
+     "id": 13,
+     "nome": "Weedle",
+     "slug": "weedle",
+     "nv": 1,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 80
+    }
+   ]
+  },
+  {
+   "id": 44,
+   "atributo": "satk",
+   "especies": [
+    {
+     "id": 55,
+     "nome": "Golduck",
+     "slug": "golduck",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 11500
+    },
+    {
+     "id": 46,
+     "nome": "Paras",
+     "slug": "paras",
+     "nv": 1,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 60
+    },
+    {
+     "id": 70,
+     "nome": "Weepinbell",
+     "slug": "weepinbell",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 2250
+    }
+   ]
+  },
+  {
+   "id": 45,
+   "atributo": "sdef",
+   "especies": [
+    {
+     "id": 76,
+     "nome": "Golem",
+     "slug": "golem",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 15000
+    },
+    {
+     "id": 47,
+     "nome": "Parasect",
+     "slug": "parasect",
+     "nv": 50,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 5060
+    },
+    {
+     "id": 110,
+     "nome": "Weezing",
+     "slug": "weezing",
+     "nv": 60,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 10000
+    }
+   ]
+  },
+  {
+   "id": 48,
+   "atributo": "sdef",
+   "especies": [
+    {
+     "id": 58,
+     "nome": "Growlithe",
+     "slug": "growlithe",
+     "nv": 30,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 3500
+    },
+    {
+     "id": 130,
+     "nome": "Gyarados",
+     "slug": "gyarados",
+     "nv": 100,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 27500
+    },
+    {
+     "id": 18,
+     "nome": "Pidgeot",
+     "slug": "pidgeot",
+     "nv": 80,
+     "mapa": "kanto",
+     "raridade": "COMMON",
+     "valor": 11500
+    }
+   ]
+  }
+ ]
+}
