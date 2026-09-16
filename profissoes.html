@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR" data-tema="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Profissões · Guia do Mestre</title>
+<meta name="description" content="Engenheiro e Minerador do PokeWG: patentes, missões, custos e qual escolher primeiro.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.dois{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.prof-card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--prof);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:11px}
+.prof-card.eng{border-top-color:var(--hunt)}
+.prof-card h3{font-size:19px}
+.prof-card .papel{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.mats{display:flex;flex-wrap:wrap;gap:5px}
+.mat{font-size:12.5px;background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+.esteira{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.deg{flex:1 1 130px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:11px 13px;display:flex;flex-direction:column;gap:3px}
+.deg .nv{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--gold)}
+.deg .t{font-weight:600;font-size:14px;line-height:1.2}
+.deg .s{font-size:12px;color:var(--ink-2)}
+.veredito{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--ok);border-radius:0 var(--radius) var(--radius) 0;padding:16px 18px}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="in">
+  <a class="brand" href="index.html"><span class="sigil"></span>Guia do Mestre</a>
+  <nav class="nav">
+    <a href="index.html">Início</a>
+    <a href="codex.html">Codex</a>
+    <a href="hunt.html">Hunt</a>
+    <a href="profissoes.html" aria-current="page">Profissões</a>
+  </nav>
+  <button class="tema" id="tema" type="button">Tema</button>
+</div></header>
+
+<main class="wrap">
+
+  <p class="eyebrow">Pilar III</p>
+  <h1>Profissões</h1>
+  <p class="lead" style="margin-top:9px">O jogo tem duas profissões abertas: <strong>Minerador</strong>, que tira as pedras de evolução, e <strong>Engenheiro</strong>, que fabrica Poké Balls. Outras devem vir depois.</p>
+
+  <section style="margin-top:34px">
+    <div class="nota certo"><strong>A descoberta que economiza seu tempo:</strong> as duas profissões são o mesmo sistema com duas pinturas. Patentes nos mesmos níveis, missões liberadas nos mesmos níveis, recompensas idênticas, upgrade com o mesmo custo e a mesma espera. Entenda uma e você entendeu as duas — o que muda é a lista de materiais e o que sai no fim.</div>
+  </section>
+
+  <section>
+    <h2>As duas profissões</h2>
+    <div class="dois" style="margin-top:14px">
+      <div class="prof-card">
+        <span class="papel">Recomendada para começar</span>
+        <h3>Minerador Pokémon</h3>
+        <p class="small">Extrai as pedras que evoluem Pokémon — Rock Stone, Fire Stone, Dark Stone e as outras. Paga cedo: pedra de evolução é útil desde o primeiro dia, e a Área de Perfuração devolve minério que realimenta as próprias missões.</p>
+        <span class="papel">Patentes</span>
+        <p class="small">Aprendiz · Escavador · Aprendiz de Geólogo · Geólogo · Mestre Geólogo</p>
+        <span class="papel">Materiais que ele pede</span>
+        <div class="mats"><span class="mat">Calcário</span><span class="mat">Ferro</span><span class="mat">Cobre</span><span class="mat">Small Stone</span><span class="mat">Enchanted Gem</span><span class="mat">Straw</span><span class="mat">Sandbag</span><span class="mat">Stone Orb</span><span class="mat">Gears</span></div>
+        <span class="papel">Mesa de melhoria</span>
+        <p class="small">Drill Upgrade II</p>
+      </div>
+      <div class="prof-card eng">
+        <span class="papel">Investimento de longo prazo</span>
+        <h3>Engenheiro</h3>
+        <p class="small">Fabrica Poké Balls, da comum às elementais. O detalhe que muda a decisão: as bolas que valem a pena só chegam no fim da escada. Até lá você produz Poké Ball comum.</p>
+        <span class="papel">Patentes</span>
+        <p class="small">Aprendiz de Oficina · Técnico Júnior · Engenheiro Pleno · Especialista em Automação · Mestre em Engenharia</p>
+        <span class="papel">Materiais que ele pede</span>
+        <div class="mats"><span class="mat">Screw</span><span class="mat">Rubber Ball</span><span class="mat">Earth Ball</span><span class="mat">Iron Ore</span><span class="mat">Fur</span><span class="mat">Sandbag</span></div>
+        <span class="papel">Mesa de melhoria</span>
+        <p class="small">Workstation II</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Como a progressão funciona</h2>
+    <p class="small" style="margin-top:7px">Vale para as duas, com os mesmos números.</p>
+
+    <h3 style="margin-top:20px">Patentes</h3>
+    <p class="small" style="margin-top:5px">São cinco blocos, e a promoção abre nos mesmos níveis nas duas profissões. O nível vai até 100.</p>
+    <div class="esteira" style="margin-top:11px">
+      <div class="deg"><span class="nv">nível 1</span><span class="t">Patente I</span><span class="s">onde todo mundo começa</span></div>
+      <div class="deg"><span class="nv">nível 21</span><span class="t">Patente II</span><span class="s">libera a mesa de melhoria</span></div>
+      <div class="deg"><span class="nv">nível 41</span><span class="t">Patente III</span><span class="s">—</span></div>
+      <div class="deg"><span class="nv">nível 61</span><span class="t">Patente IV</span><span class="s">—</span></div>
+      <div class="deg"><span class="nv">nível 81</span><span class="t">Patente V</span><span class="s">onde o Engenheiro paga</span></div>
+    </div>
+
+    <h3 style="margin-top:24px">As quatro missões</h3>
+    <p class="small" style="margin-top:5px">Você preenche a barra do nível entregando missões. Elas destravam por nível e valem porcentagens fixas.</p>
+    <div class="scroller card" style="margin-top:11px;padding:0">
+      <table class="tbl">
+        <thead><tr><th>Missão</th><th>Abre no nível</th><th>Tempo</th><th>Barra</th><th>Observação</th></tr></thead>
+        <tbody>
+          <tr><td>Missão 1</td><td class="n">1</td><td class="n">1 min</td><td class="n">+10%</td><td>a base, sempre disponível</td></tr>
+          <tr><td>Missão 2</td><td class="n">7</td><td class="n">3 min</td><td class="n">+15%</td><td>—</td></tr>
+          <tr><td>Missão 3</td><td class="n">12</td><td class="n">4 min</td><td class="n">+20%</td><td>—</td></tr>
+          <tr><td>Missão 4</td><td class="n">—</td><td>imediata</td><td class="n">+25%</td><td>custa 5 diamantes; só 5 por patente</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:24px">O atalho pago é pequeno de propósito</h3>
+    <p class="lead" style="margin-top:6px;font-size:16px">A Missão 4 gasta 5 diamantes, devolve 100+ Poeira de Diamante e enche <span class="num">25%</span> da barra. Você tem <strong>5 por patente</strong>, e o contador zera quando você promove. Faça a conta: são <span class="num">125%</span> de barra por patente, ou seja <strong>pouco mais de um nível</strong> comprado em cada bloco de vinte.</p>
+    <div class="nota" style="margin-top:12px">Isso é bom para furar um gargalo pontual — não é caminho de progressão. Quem entra achando que dá pra comprar o caminho inteiro gasta diamante e continua no mesmo lugar.</div>
+
+    <h3 style="margin-top:24px">A mesa de melhoria</h3>
+    <p class="small" style="margin-top:5px">Para subir de patente você precisa da mesa da patente seguinte — Workstation II no Engenheiro, Drill Upgrade II no Minerador. As regras são iguais nos dois:</p>
+    <div class="grid g3" style="margin-top:11px">
+      <div class="stat"><span class="v">20</span><span class="k">nível da profissão exigido</span></div>
+      <div class="stat"><span class="v">2h00</span><span class="k">de espera pela entrega</span></div>
+      <div class="stat"><span class="v">9</span><span class="k">poeiras de diamante zeram a espera</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Engenheiro: a escada de recompensa</h2>
+    <p class="lead" style="margin-top:7px;font-size:16px">Aqui está o número mais importante da página, e o que ninguém conta pra quem está escolhendo profissão: <strong>quase toda a recompensa do Engenheiro está nos últimos vinte níveis.</strong></p>
+    <div class="esteira" style="margin-top:13px">
+      <div class="deg"><span class="nv">nível 81</span><span class="t">Fast Ball + Heavy Ball</span><span class="s">as primeiras bolas especiais</span></div>
+      <div class="deg"><span class="nv">nível 90</span><span class="t">9 bolas elementais</span><span class="s">o verdadeiro prêmio</span></div>
+      <div class="deg"><span class="nv">nível 100</span><span class="t">Nightmare Ball</span><span class="s">o topo</span></div>
+    </div>
+    <div class="nota duvida" style="margin-top:13px"><strong>Leia isso antes de escolher:</strong> do nível 1 ao 80 você fabrica Poké Ball comum. Se o seu objetivo é ter bola melhor pra fechar codex nos próximos dias, Engenheiro não resolve. Ele compensa para quem joga pensando em meses.</div>
+  </section>
+
+  <section>
+    <h2>Minerador: a Área de Perfuração</h2>
+    <p class="small" style="margin-top:7px">Além das missões, o Minerador tem uma segunda aba que roda em ciclo próprio. A broca a combustível consome material e devolve minério — e é isso que realimenta as missões da própria profissão.</p>
+    <div class="scroller card" style="margin-top:11px;padding:0">
+      <table class="tbl">
+        <thead><tr><th>Combustible Drill</th><th>Consome</th><th>Ciclo</th><th>Devolve</th></tr></thead>
+        <tbody>
+          <tr><td>ciclo de broca</td><td>Bug Gosme · Essence of Fire</td><td class="n">1 min</td><td class="n">+30 Calcário · +15 Ferro · +10 Cobre</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:11px">A tela também acompanha <strong>profundidade explorada</strong>, <strong>combustível inserido</strong> e uma <strong>pedra de evolução</strong> como resultado — os três ainda em zero no começo, e é aí que está a parte que precisa de confirmação.</p>
+  </section>
+
+  <section>
+    <h2>Veredito para quem está começando</h2>
+    <div class="veredito">
+      <p><strong>Comece pelo Minerador.</strong> Pedra de evolução tem uso imediato, o ciclo de broca se paga sozinho, e a recompensa não fica presa atrás de oitenta níveis. Deixe o Engenheiro para quando você já tiver mineração rodando e paciência para o longo prazo — as bolas elementais valem a espera, mas são uma meta de meses, não de semana.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>O que ainda não sabemos</h2>
+    <p class="small" style="margin-top:7px">Preferimos marcar dúvida do que publicar chute. Se você souber alguma destas, fale com a gente.</p>
+    <div class="stack gap-s" style="margin-top:13px">
+      <div class="nota duvida"><strong>Subir nível de mineração aumenta a quantidade de pedra por ciclo, ou a chance de vir pedra melhor?</strong> São coisas diferentes e mudam completamente a estratégia de quem está atrás de uma pedra específica. Em consulta com o tutor do jogo.</div>
+      <div class="nota duvida"><strong>Quanto de XP cada missão dá, em número absoluto?</strong> A tela mostra a porcentagem da barra, mas não se a barra cresce a cada nível.</div>
+      <div class="nota duvida"><strong>A profundidade da broca muda o que sai?</strong> Se profundidade maior trouxer pedras melhores, o ciclo de broca vira o centro da profissão.</div>
+      <div class="nota duvida"><strong>Dá pra trocar de profissão sem perder o progresso?</strong> Existe o botão "Escolher outra profissão", mas não sabemos o que acontece com o nível acumulado.</div>
+    </div>
+  </section>
+
+</main>
+
+<footer><div class="in">
+  <span>Guia do Mestre · feito por <strong>PHMESTRE</strong> · <strong>NUOT</strong></span>
+  <span>Guia não oficial. Sem vínculo com PokeWG, Nintendo ou Game Freak.</span>
+</div></footer>
+
+<script>
+document.getElementById("tema").addEventListener("click",()=>{
+  const r=document.documentElement;
+  r.dataset.tema=r.dataset.tema==="escuro"?"claro":r.dataset.tema==="claro"?"":"escuro";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR" data-tema="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia do Mestre · PokeWG</title>
+<meta name="description" content="Os três pilares do PokeWG explicados: codex, hunt e profissões. Guia não oficial da comunidade.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.abre{display:grid;gap:26px;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);align-items:start;margin-bottom:44px}
+@media (max-width:760px){.abre{grid-template-columns:1fr;gap:20px}}
+.abre h1{margin-top:8px}
+.primeiro{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.passos{margin:0;padding:0;counter-reset:s}
+.passos li{list-style:none;display:flex;gap:11px;padding:11px 0;border-bottom:1px solid var(--line)}
+.passos li:last-child{border-bottom:0;padding-bottom:0}
+.passos li::before{counter-increment:s;content:counter(s);font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--gold);border:1px solid var(--line);border-radius:6px;width:23px;height:23px;display:grid;place-items:center;flex:none}
+.passos strong{display:block;font-size:14.5px}
+.passos span{font-size:13.5px;color:var(--ink-2)}
+.ilhas{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+.ilha{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 13px;flex:1 1 140px;display:flex;flex-direction:column;gap:2px}
+.ilha .n{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:15px}
+.ilha .d{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--ink-2)}
+.ilha .r{font-size:11.5px;color:var(--ink-3)}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="in">
+  <a class="brand" href="index.html"><span class="sigil"></span>Guia do Mestre</a>
+  <nav class="nav">
+    <a href="index.html" aria-current="page">Início</a>
+    <a href="codex.html">Codex</a>
+    <a href="hunt.html">Hunt</a>
+    <a href="profissoes.html">Profissões</a>
+  </nav>
+  <button class="tema" id="tema" type="button">Tema</button>
+</div></header>
+
+<main class="wrap">
+
+  <div class="abre">
+    <div>
+      <p class="eyebrow">PokeWG · guia não oficial</p>
+      <h1>Três sistemas decidem o seu jogo. Ninguém te explica nenhum deles.</h1>
+      <p class="lead" style="margin-top:14px">Codex, hunt e profissões. Quem entende os três cresce rápido; quem não entende passa semanas caçando sem saber o que está construindo. Este guia existe para encurtar essa distância — com os números conferidos, e dizendo na cara quando a gente não sabe.</p>
+    </div>
+    <div class="primeiro">
+      <p class="eyebrow">Se você está começando agora</p>
+      <ol class="passos" style="margin-top:11px">
+        <li><div><strong>Escolha Minerador</strong><span>Pedra de evolução serve desde o primeiro dia. O Engenheiro só paga depois do nível 81.</span></div></li>
+        <li><div><strong>Cace largo, não fundo</strong><span>No codex, uma espécie parada em zero trava o grupo inteiro dela. Registre muitas espécies antes de melhorar a qualidade de uma.</span></div></li>
+        <li><div><strong>Não gaste diamante em atalho</strong><span>A missão paga enche 25% da barra e você só tem 5 por patente. É pouco mais de um nível comprado.</span></div></li>
+        <li><div><strong>Mire os 100% da região</strong><span>Johto só abre com Kanto inteiro. Cada grupo fechado é 1 de 176 níveis de codex.</span></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <section>
+    <h2>Os três pilares</h2>
+    <div class="grid g3" style="margin-top:15px">
+      <a class="pilar" data-p="codex" href="codex.html">
+        <span class="tag">Pilar I · pronto</span>
+        <h3>Codex</h3>
+        <p class="small">O sistema que mais rende e o menos entendido. Marque o tier de cada espécie e veja o bônus real de XP, loot e shiny, mais o que registrar em seguida.</p>
+        <span class="go">Abrir o analisador →</span>
+      </a>
+      <a class="pilar" data-p="hunt" href="hunt.html">
+        <span class="tag">Pilar II · pronto</span>
+        <h3>Hunt</h3>
+        <p class="small">Os 517 mapas de hunt com espécie, nível, raridade e valor — e o índice inverso de 274 itens: dado um drop, onde ele cai.</p>
+        <span class="go">Abrir a tabela →</span>
+      </a>
+      <a class="pilar" data-p="prof" href="profissoes.html">
+        <span class="tag">Pilar III · pronto</span>
+        <h3>Profissões</h3>
+        <p class="small">Minerador e Engenheiro são o mesmo sistema com duas pinturas. Patentes, missões, o custo do atalho pago e qual escolher primeiro.</p>
+        <span class="go">Ler o guia →</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>O codex em números</h2>
+    <p class="small" style="margin-top:7px">Cada espécie aceita quatro tiers de qualidade, e é isso que explica os totais: as 131 espécies de Kanto dão 524 registros. As regiões abrem em cadeia, cada uma exigindo 100% da anterior.</p>
+    <div class="ilhas">
+      <div class="ilha"><span class="n">Kanto</span><span class="d">44 grupos · 524 registros</span><span class="r">aberta desde o início</span></div>
+      <div class="ilha"><span class="n">Johto</span><span class="d">24 grupos · 348 registros</span><span class="r">abre com Kanto 100%</span></div>
+      <div class="ilha"><span class="n">Hoenn</span><span class="d">26 grupos · 316 registros</span><span class="r">abre com Johto 100%</span></div>
+      <div class="ilha"><span class="n">Sinnoh</span><span class="d">16 grupos · 192 registros</span><span class="r">abre com Hoenn 100%</span></div>
+    </div>
+    <div class="grid g4" style="margin-top:15px">
+      <div class="stat"><span class="v">+15%</span><span class="k">XP com uma região em 100%</span></div>
+      <div class="stat"><span class="v">+10%</span><span class="k">loot no mesmo cenário</span></div>
+      <div class="stat"><span class="v">1/273</span><span class="k">shiny com região completa (base 1/300)</span></div>
+      <div class="stat"><span class="v">+50</span><span class="k">teto por atributo</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Como este guia trata o que não sabe</h2>
+    <div class="nota duvida" style="margin-top:11px">Toda afirmação aqui vem de tela do jogo, da resposta da própria API ou de dado público da comunidade. O que é suposição está marcado em amarelo como esta caixa, e o que é dúvida aberta fica listado no fim de cada página. Se você souber a resposta de alguma, fale com a gente — é assim que o guia melhora.</div>
+  </section>
+
+</main>
+
+<footer><div class="in">
+  <span>Guia do Mestre · feito por <strong>PHMESTRE</strong> · <strong>NUOT</strong></span>
+  <span>Guia não oficial. Sem vínculo com PokeWG, Nintendo ou Game Freak.</span>
+</div></footer>
+
+<script>
+document.getElementById("tema").addEventListener("click",()=>{
+  const r=document.documentElement;
+  r.dataset.tema=r.dataset.tema==="escuro"?"claro":r.dataset.tema==="claro"?"":"escuro";
+});
+</script>
+</body>
+</html>

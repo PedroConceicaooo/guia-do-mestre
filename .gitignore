@@ -1,0 +1,4 @@
+codex-bruto.json
+*.local.json
+.DS_Store
+.vercel
