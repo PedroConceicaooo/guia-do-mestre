@@ -7,6 +7,8 @@
 <meta name="description" content="Os 517 hunts do PokeWG com nível, área, raridade e valor, mais o índice de qual Pokémon dropa cada item.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/style.css">
+<script src="assets/tema.js"></script>
+<script src="assets/icones.js"></script>
 <style>
 .barra{position:sticky;top:53px;z-index:30;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:13px 15px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
 .busca{display:flex;align-items:center;gap:7px;flex:1 1 190px;min-width:0;background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:0 10px}
@@ -39,7 +41,7 @@ select{background:var(--panel-2);color:var(--ink);border:1px solid var(--line);b
 <body>
 
 <header class="top"><div class="in">
-  <a class="brand" href="index.html"><span class="sigil"></span>Guia do Mestre</a>
+  <a class="brand" href="index.html"><svg class="logo" aria-hidden="true"><use href="#gdm-logo"/></svg>Guia do Mestre</a>
   <nav class="nav">
     <a href="index.html">Início</a>
     <a href="codex.html">Codex</a>
@@ -143,6 +145,8 @@ let H=[], D={}, E={}, porSlug={}, termo="", fArea="", fRar="", ord="nivel", asc=
 const chave=s=>(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"");
 const norm=s=>(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
 const fmt=n=>n==null?"—":n.toLocaleString("pt-BR");
+const badge=t=>t?`<span class="tp" data-t="${t}"><svg class="ti" aria-hidden="true"><use href="#ti-${t}"/></svg>${t}</span>`:"";
+const badges=(a,b)=>badge(a)+badge(b);
 
 async function carregar(){
   try{
@@ -188,9 +192,9 @@ function render(){
       <td><strong>${h.nome}</strong></td>
       <td class="n">${h.nivel}</td>
       <td><span class="area">${AREAS[h.area]||h.area}</span></td>
-      <td><span class="tipo">${[h.t1,h.t2].filter(Boolean).join(" / ")}</span></td>
+      <td>${badges(h.t1,h.t2)}</td>
       <td><span class="rar" data-r="${h.raridade||""}">${h.raridade||"—"}</span></td>
-      <td class="n">${fmt(h.valor)}</td>
+      <td class="n v-gold">${fmt(h.valor)}</td>
       <td class="n">${(h.drops||[]).length}</td></tr>`).join(""):'<tr><td colspan="7">Nada encontrado.</td></tr>';
   }else{
     const nomes=Object.keys(D).filter(i=>!termo||norm(i).includes(termo)).sort((a,b)=>D[a].length-D[b].length||a.localeCompare(b));
@@ -206,7 +210,7 @@ function render(){
           ${universal?'<span class="pill">cai de quase todo mundo</span>':""}
           <span class="contagem">${fontes.length} fonte${fontes.length>1?"s":""}</span></h3>
         <div class="fontes">${fontes.slice(0,24).map((f,k)=>`<span class="fonte ${k===0&&!universal?"melhor":""}">
-          <b>${f.nome}</b><span class="nv">nv ${f.nivel} · ${AREAS[f.area]||f.area}</span></span>`).join("")}
+          <b>${f.nome}</b>${badges(f.t1,f.t2)}<span class="nv">nv ${f.nivel} · ${AREAS[f.area]||f.area}</span></span>`).join("")}
           ${fontes.length>24?`<span class="fonte"><span class="nv">+${fontes.length-24} outros</span></span>`:""}</div>
       </div>`;
     }).join(""):'<div class="card">Nenhum item encontrado.</div>';
@@ -275,7 +279,7 @@ function renderJornada(){
   const meus=[ficha.t1,ficha.t2].filter(Boolean);
   const disp=(ficha.gol||[]).filter(g=>g[4]<=nv&&g[2]&&g[3]!=="T");
   const maior=disp.reduce((a,g)=>Math.max(a,g[2]),0);
-  info.innerHTML=`<strong>${ficha.nome}</strong> · <span class="tipo">${meus.join(" / ")}</span> · `+
+  info.innerHTML=`<strong>${ficha.nome}</strong> ${badges(ficha.t1,ficha.t2)} · `+
     `<strong>${disp.length}</strong> golpe${disp.length===1?"":"s"} de dano no nível ${nv} (maior poder: ${maior||"—"})`+
     (ficha.evo&&ficha.evoNv?` · evolui para <strong>${ficha.evo}</strong> no nível ${ficha.evoNv}`:"");
   if(!disp.length){ caixa.innerHTML='<div class="card">Nesse nível ele ainda não tem golpe de dano.</div>'; return; }
@@ -308,11 +312,11 @@ function renderJornada(){
       <div class="scroller"><table class="tbl" style="margin-top:4px">
         <thead><tr><th>Alvo</th><th>Melhor golpe seu</th><th>Efeito</th><th>XP</th><th>Eficiência</th></tr></thead>
         <tbody>${b.cands.map(c=>`<tr>
-          <td><strong>${c.h.nome}</strong> <span class="tipo">${[c.h.t1,c.h.t2].filter(Boolean).join("/")}</span></td>
-          <td>${c.g.nome} <span class="tipo">${c.g.tipo} ${c.g.pw}</span></td>
+          <td><strong>${c.h.nome}</strong><br>${badges(c.h.t1,c.h.t2)}</td>
+          <td>${c.g.nome}<br>${badge(c.g.tipo)}<span class="tipo"> poder ${c.g.pw}</span></td>
           <td class="n" style="color:${c.ef>=2?"var(--ok)":c.ef<1?"var(--stop)":"var(--ink-2)"}">${c.ef}×</td>
-          <td class="n">${c.xp!=null?c.xp.toLocaleString("pt-BR"):"—"}</td>
-          <td class="n">${c.rel}</td></tr>`).join("")}</tbody>
+          <td class="n v-xp">${c.xp!=null?c.xp.toLocaleString("pt-BR"):"—"}</td>
+          <td class="n"><span class="v-ef">${c.rel}</span><i class="efbar" style="width:${c.rel}%"></i></td></tr>`).join("")}</tbody>
       </table></div>
     </div>`;
   }).join("")||'<div class="card">Nenhum alvo alcançável.</div>';
@@ -338,10 +342,6 @@ document.getElementById("aba").addEventListener("click",e=>{
   document.getElementById("v-itens").hidden=aba!=="itens";
   document.getElementById("v-jornada").hidden=aba!=="jornada";
   if(aba==="jornada") renderJornada(); else render();
-});
-document.getElementById("tema").addEventListener("click",()=>{
-  const r=document.documentElement;
-  r.dataset.tema=r.dataset.tema==="escuro"?"claro":r.dataset.tema==="claro"?"":"escuro";
 });
 carregar();
 </script>

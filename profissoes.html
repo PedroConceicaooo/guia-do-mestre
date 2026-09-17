@@ -7,6 +7,8 @@
 <meta name="description" content="Engenheiro e Minerador do PokeWG: patentes, missões, custos e qual escolher primeiro.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/style.css">
+<script src="assets/tema.js"></script>
+<script src="assets/icones.js"></script>
 <style>
 .dois{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
 .prof-card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--prof);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:11px}
@@ -26,7 +28,7 @@
 <body>
 
 <header class="top"><div class="in">
-  <a class="brand" href="index.html"><span class="sigil"></span>Guia do Mestre</a>
+  <a class="brand" href="index.html"><svg class="logo" aria-hidden="true"><use href="#gdm-logo"/></svg>Guia do Mestre</a>
   <nav class="nav">
     <a href="index.html">Início</a>
     <a href="codex.html">Codex</a>
@@ -182,10 +184,6 @@ fetch("data/pedras.json").then(r=>r.json()).then(j=>{
         `<span class="mat"><strong>${e.de}</strong> → ${e.vira} <span style="opacity:.6">×${e.qtd}</span></span>`).join("")}</div>
     </div>`).join("");
 }).catch(()=>{document.getElementById("pedras").innerHTML='<div class="nota">Não consegui carregar <span class="num">data/pedras.json</span>.</div>';});
-document.getElementById("tema").addEventListener("click",()=>{
-  const r=document.documentElement;
-  r.dataset.tema=r.dataset.tema==="escuro"?"claro":r.dataset.tema==="claro"?"":"escuro";
-});
 </script>
 </body>
 </html>

@@ -134,3 +134,54 @@ footer .in{max-width:1080px;margin:0 auto;padding-inline:18px;display:flex;gap:1
 footer strong{color:var(--ink-2)}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------------------------------------------------------------
+   Cores de tipo — convenção da comunidade Pokémon, usada como
+   informação (identificar o tipo de relance), não como enfeite.
+   --------------------------------------------------------------- */
+.tp{
+  --tp:var(--ink-3);
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:500;
+  letter-spacing:.07em;text-transform:uppercase;
+  padding:2px 7px 2px 5px;border-radius:5px;
+  background:var(--panel-2);color:var(--tp);
+  border-left:3px solid var(--tp);white-space:nowrap;
+}
+.tp+.tp{margin-left:4px}
+.tp[data-t="NORMAL"]{--tp:#8b949e}   .tp[data-t="FIRE"]{--tp:#e85a24}
+.tp[data-t="WATER"]{--tp:#3d82cc}    .tp[data-t="ELECTRIC"]{--tp:#c99a06}
+.tp[data-t="GRASS"]{--tp:#4a9e42}    .tp[data-t="ICE"]{--tp:#3fa9a0}
+.tp[data-t="FIGHTING"]{--tp:#c3325c} .tp[data-t="POISON"]{--tp:#9a56b8}
+.tp[data-t="GROUND"]{--tp:#c26434}   .tp[data-t="FLYING"]{--tp:#6f8fd0}
+.tp[data-t="PSYCHIC"]{--tp:#e2515c}  .tp[data-t="BUG"]{--tp:#77a017}
+.tp[data-t="ROCK"]{--tp:#a3915e}     .tp[data-t="GHOST"]{--tp:#4f63a8}
+.tp[data-t="DRAGON"]{--tp:#2a6fc0}   .tp[data-t="DARK"]{--tp:#6b6376}
+.tp[data-t="STEEL"]{--tp:#4f8497}    .tp[data-t="FAIRY"]{--tp:#d968cf}
+:root[data-tema="escuro"] .tp,
+:root:not([data-tema="claro"]) .tp{filter:brightness(1.35) saturate(1.1)}
+@media (prefers-color-scheme:light){:root:not([data-tema="escuro"]) .tp{filter:none}}
+:root[data-tema="claro"] .tp{filter:none}
+
+/* botão de tema, agora com ícone e rótulo */
+.tema{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.tema svg{flex:none}
+
+/* números com cor semântica */
+.v-xp{color:var(--gold);font-weight:600}
+.v-gold{color:var(--ok);font-weight:600}
+.v-ef{position:relative;display:inline-block;min-width:3.2ch;text-align:right}
+
+/* barrinha de eficiência dentro da célula */
+.efbar{display:block;height:3px;border-radius:99px;background:var(--hunt);margin-top:3px;opacity:.85}
+
+/* ícone dos pilares */
+.pilar .ico{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--panel-2);margin-bottom:2px}
+.pilar[data-p="codex"] .ico{color:var(--codex)}
+.pilar[data-p="hunt"] .ico{color:var(--hunt)}
+.pilar[data-p="prof"] .ico{color:var(--prof)}
+
+/* glifos de tipo e marca do projeto */
+.ti{width:11px;height:11px;flex:none}
+.tp{padding-left:6px}
+.brand .logo{width:25px;height:25px;color:var(--gold);flex:none}

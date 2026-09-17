@@ -7,6 +7,8 @@
 <meta name="description" content="Analisador de codex do PokeWG: progresso por região, bônus reais e o que registrar em seguida.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/style.css">
+<script src="assets/tema.js"></script>
+<script src="assets/icones.js"></script>
 <style>
 .barra{position:sticky;top:53px;z-index:30;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:13px 15px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
 .busca{display:flex;align-items:center;gap:7px;flex:1 1 200px;min-width:0;background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:0 10px}
@@ -49,7 +51,7 @@
 <body>
 
 <header class="top"><div class="in">
-  <a class="brand" href="index.html"><span class="sigil"></span>Guia do Mestre</a>
+  <a class="brand" href="index.html"><svg class="logo" aria-hidden="true"><use href="#gdm-logo"/></svg>Guia do Mestre</a>
   <nav class="nav">
     <a href="index.html">Início</a>
     <a href="codex.html" aria-current="page">Codex</a>
@@ -300,10 +302,6 @@ document.getElementById("btn-colar").addEventListener("click",()=>{
   }catch(err){ msg.textContent="Não consegui ler esse JSON: "+err.message; }
 });
 document.getElementById("btn-limpar").addEventListener("click",()=>{carregar();document.getElementById("msg-import").textContent="Recarreguei os dados do repositório.";});
-document.getElementById("tema").addEventListener("click",()=>{
-  const r=document.documentElement;
-  r.dataset.tema=r.dataset.tema==="escuro"?"claro":r.dataset.tema==="claro"?"":"escuro";
-});
 carregar();
 </script>
 </body>
