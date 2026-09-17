@@ -141,6 +141,13 @@
   </section>
 
   <section>
+    <h2>O que as pedras do Minerador evoluem</h2>
+    <p class="small" style="margin-top:7px">A razão concreta para escolher Minerador: <strong>27 pedras</strong> destravam <strong>55 evoluções</strong>. Abaixo, cada pedra e quem ela evolui — com a quantidade exigida.</p>
+    <div id="pedras" style="margin-top:14px"></div>
+    <p class="small" style="margin-top:11px;color:var(--ink-3)">Fonte: Poképedia oficial do jogo.</p>
+  </section>
+
+  <section>
     <h2>Veredito para quem está começando</h2>
     <div class="veredito">
       <p><strong>Comece pelo Minerador.</strong> Pedra de evolução tem uso imediato, o ciclo de broca se paga sozinho, e a recompensa não fica presa atrás de oitenta níveis. Deixe o Engenheiro para quando você já tiver mineração rodando e paciência para o longo prazo — as bolas elementais valem a espera, mas são uma meta de meses, não de semana.</p>
@@ -166,6 +173,15 @@
 </div></footer>
 
 <script>
+fetch("data/pedras.json").then(r=>r.json()).then(j=>{
+  document.getElementById("pedras").innerHTML=j.pedras.map(p=>`
+    <div class="card" style="margin-bottom:8px;padding:13px 15px">
+      <h3 style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">${p.pedra}
+        <span class="papel">${p.qtd} evolução${p.qtd>1?"ões":""}</span></h3>
+      <div class="mats" style="margin-top:9px">${p.evolucoes.map(e=>
+        `<span class="mat"><strong>${e.de}</strong> → ${e.vira} <span style="opacity:.6">×${e.qtd}</span></span>`).join("")}</div>
+    </div>`).join("");
+}).catch(()=>{document.getElementById("pedras").innerHTML='<div class="nota">Não consegui carregar <span class="num">data/pedras.json</span>.</div>';});
 document.getElementById("tema").addEventListener("click",()=>{
   const r=document.documentElement;
   r.dataset.tema=r.dataset.tema==="escuro"?"claro":r.dataset.tema==="claro"?"":"escuro";

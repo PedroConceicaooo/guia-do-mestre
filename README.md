@@ -40,6 +40,8 @@ assets/style.css    Tokens de cor, tipografia e componentes (tema claro e escuro
 data/hunts.json     Os 517 mapas de hunt (de /api/game/map-markers)
 data/drops.json     Índice item -> slugs de hunt (274 itens)
 data/codex-kanto.json   44 grupos do codex de Kanto, com nível/raridade/valor
+data/especies.json  443 fichas da Poképedia: tipos, stats, XP, evolução e 3.416 golpes
+data/pedras.json    27 pedras de evolução e as 55 evoluções que elas destravam
 tools/converter.py  Converte a resposta de /api/game/codex no formato do site
 ```
 
@@ -62,6 +64,12 @@ Níveis de hunt existentes: **1, 10, 20, 30, 40, 50, 60, 80, 100, 150, 300, 450,
 São 364 espécies distintas, e **132 delas aparecem em mais de um mapa**, em níveis diferentes — para registro de codex, vale sempre o mapa de menor nível.
 
 O índice de drops cobre **274 itens**. O `Strange Pheromone` cai de 511 dos 517 hunts, então é universal e está marcado como tal.
+
+### O que é `hl` e o que é `level`
+
+São coisas distintas e confundi-las gera erro grosseiro. O **`level`** do `map-markers` é o nível do mapa — é ele que diz se você consegue entrar. O **`hl`** da Poképedia é um atributo da espécie que determina o **XP concedido**. Chikorita tem `hl` 20 e só existe num mapa de nível 300.
+
+A consequência prática é grande: em Kanto todo alvo do mesmo degrau dá o mesmo XP (nível 30 dá 548, nível 80 dá 3.848), mas a partir do nível 150 um mesmo mapa mistura espécies que dão de **248 a 6.008**. No fim de jogo, escolher o alvo certo dentro do degrau vale mais que qualquer bônus percentual.
 
 ### Para atualizar quando o jogo mudar
 
@@ -141,6 +149,10 @@ Internamente o jogo chama Hoenn de `orre`. Se um dia o site ler mais de uma regi
 
 Todos os dados deste site são lidos dos endpoints do próprio jogo — nenhum dataset de terceiro é redistribuído aqui.
 
-O [Guia de Hunts](https://pokewg-hunts.vercel.app/), de outro jogador da comunidade, foi a inspiração para o pilar de hunt e segue linkado no site. Vale registrar uma diferença técnica encontrada ao comparar: a compilação dele lista níveis de hunt (70, 130, 160, 180, 200, 470, 600) que não existem na resposta atual do servidor, e não tem os níveis 300 e 550 que existem. Provavelmente foi montada em outra versão do jogo. Por isso este site lê do servidor em vez de reaproveitar aquele arquivo — não por mérito, mas para não herdar dado vencido.
+As fichas de espécie, golpes e pedras vêm da **Poképedia oficial** (`pokewg.com/pokepedia`), material publicado pelos próprios desenvolvedores. A tabela de hunts vem de `/api/game/map-markers`. Ambas são fontes primárias — nenhum dataset de terceiro é redistribuído aqui.
+
+O [Guia de Hunts](https://pokewg-hunts.vercel.app/), de outro jogador da comunidade, foi a inspiração para o pilar de hunt e segue linkado no site.
+
+**Correção registrada:** uma versão anterior deste README afirmava que a compilação dele estava desatualizada, porque os níveis não batiam com o servidor. Estava errado. Os números dele vêm do campo `hl` da Poképedia, que **não é** o nível do mapa — é um atributo da espécie que governa o XP que ela concede. São campos diferentes medindo coisas diferentes, não versões diferentes do mesmo dado.
 
 Guia não oficial, sem vínculo com PokeWG, Nintendo ou Game Freak. Todas as marcas pertencem aos seus donos.

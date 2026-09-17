@@ -65,6 +65,7 @@ select{background:var(--panel-2);color:var(--ink);border:1px solid var(--line);b
     <div class="seg" id="aba">
       <button data-v="hunts" aria-pressed="true">Hunts</button>
       <button data-v="itens" aria-pressed="false">Itens</button>
+      <button data-v="jornada" aria-pressed="false">Jornada</button>
     </div>
   </div>
 
@@ -96,12 +97,30 @@ select{background:var(--panel-2);color:var(--ink);border:1px solid var(--line);b
     <div id="lista-itens"></div>
   </section>
 
+  <section id="v-jornada" hidden>
+    <div class="card" style="margin-bottom:18px">
+      <h2 style="font-size:19px">Qual é o seu Pokémon?</h2>
+      <p class="small" style="margin-top:6px;max-width:62ch">Digite o nome e o nível dele. Eu leio os golpes que ele já aprendeu nesse nível, calculo o dano contra cada alvo e ordeno por eficiência — XP por tempo de abate. A coluna <strong>Eficiência</strong> é relativa ao melhor alvo daquele degrau (100 = o melhor).</p>
+      <div style="display:flex;gap:11px;flex-wrap:wrap;margin-top:13px;align-items:center">
+        <div class="busca" style="flex:1 1 220px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.2" y1="16.2" x2="21" y2="21"/></svg>
+          <input id="meu" type="search" placeholder="Ex: Charmander" autocomplete="off" list="lista-especies"></div>
+        <datalist id="lista-especies"></datalist>
+        <label class="small" style="display:flex;align-items:center;gap:8px">Nível
+          <input id="meunv" type="number" min="1" max="1000" value="35" style="width:88px;background:var(--panel-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:8px 10px"></label>
+      </div>
+      <p class="small" id="meu-info" style="margin-top:11px"></p>
+    </div>
+    <div id="escada"></div>
+    <div class="nota certo" style="margin-top:14px"><strong>Como a conta é feita.</strong> Para cada alvo, olhamos todos os golpes que o seu Pokémon já aprendeu até o nível informado, cruzamos cada um com os tipos do alvo pela tabela de efetividade, somamos o bônus de 50% quando o golpe é do mesmo tipo do Pokémon, e ficamos com o de maior dano. A eficiência é esse dano dividido pelo HP base do alvo, multiplicado pelo XP que ele concede. <strong>Não há limite de golpes equipados no jogo</strong> — confirmado por jogador —, então o melhor golpe contra cada alvo está sempre disponível, e a conta reflete o que acontece de verdade.</div>
+  </section>
+
   <section>
     <h2>Como ler esses números</h2>
     <div class="stack gap-s" style="margin-top:12px">
       <div class="nota certo"><strong>Raridade é o eixo de dificuldade.</strong> EPIC tem valor mediano de 120.000 contra 18.000 de RARE — quinze vezes mais. São só 27 EPIC no jogo inteiro, e eles são os gargalos de verdade.</div>
       <div class="nota"><strong>COMMON e UNCOMMON têm o mesmo valor mediano</strong> (8.000 os dois). Esse par de rótulos não separa nada em termos econômicos; não planeje assumindo que UNCOMMON custa mais caro para obter.</div>
       <div class="nota duvida"><strong>Valor não é dificuldade.</strong> Dentro de uma região ele acompanha o nível — e aí não diz nada que o nível já não diga. Fora dela ele despenca: nível 100 tem mediana de 60.000, nível 700 tem 18.000. A correlação linear entre nível e valor é de apenas 0,16. Use valor como desempate, nunca como medida de esforço.</div>
+      <div class="nota certo"><strong>XP não vem do mapa, vem da espécie.</strong> Em Kanto isso não importa: todo alvo de nível 30 dá 548 de XP, todo alvo de nível 80 dá 3.848. Mas do nível 150 em diante a coisa muda — num mapa de nível 700 convivem espécies que dão <strong>248</strong> e espécies que dão <strong>6.008</strong>. Vinte e quatro vezes de diferença no mesmo degrau. Escolher o alvo certo no fim de jogo vale mais que qualquer bônus.</div>
       <div class="nota duvida"><strong>A captura depende de quem você é.</strong> O jogo calcula captura com uma base de mundo (10%) multiplicada pelos seus bônus — o multiplicador do dono desta conta estava em 2,2 com talento e efeitos. Ou seja, a mesma caçada é diferente para cada jogador, e ainda não sabemos se a espécie tem um peso próprio nessa conta.</div>
     </div>
   </section>
@@ -120,14 +139,15 @@ select{background:var(--panel-2);color:var(--ink);border:1px solid var(--line);b
 
 <script>
 const AREAS={kanto:"Kanto",outland:"Outland",outlandplus:"Outland+",johto:"Johto",orre:"Hoenn",sinnoh:"Sinnoh",safari:"Safari"};
-let H=[], D={}, porSlug={}, termo="", fArea="", fRar="", ord="nivel", asc=true, aba="hunts";
+let H=[], D={}, E={}, porSlug={}, termo="", fArea="", fRar="", ord="nivel", asc=true, aba="hunts";
+const chave=s=>(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"");
 const norm=s=>(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
 const fmt=n=>n==null?"—":n.toLocaleString("pt-BR");
 
 async function carregar(){
   try{
-    const [a,b]=await Promise.all([fetch("data/hunts.json"),fetch("data/drops.json")]);
-    H=(await a.json()).hunts; D=(await b.json()).itens;
+    const [a,b,c]=await Promise.all([fetch("data/hunts.json"),fetch("data/drops.json"),fetch("data/especies.json")]);
+    H=(await a.json()).hunts; D=(await b.json()).itens; E=(await c.json()).especies;
   }catch(e){
     document.getElementById("corpo").innerHTML='<tr><td colspan="7">Não consegui carregar os dados. Se abriu o arquivo direto do disco, suba num servidor local.</td></tr>';
     return;
@@ -142,6 +162,7 @@ async function carregar(){
   document.getElementById("k-esp").textContent=esp.size;
   document.getElementById("k-rep").textContent=Object.values(cont).filter(v=>v>1).length;
   document.getElementById("k-it").textContent=Object.keys(D).length;
+  document.getElementById("lista-especies").innerHTML=Object.values(E).map(e=>e.nome).sort().map(n=>`<option value="${n}">`).join("");
   render();
 }
 
@@ -194,6 +215,111 @@ function render(){
   }
 }
 
+/* tabela de efetividade padrao: atacante -> {defensor: multiplicador} */
+const EF={
+ NORMAL:{ROCK:.5,GHOST:0,STEEL:.5},
+ FIRE:{FIRE:.5,WATER:.5,GRASS:2,ICE:2,BUG:2,ROCK:.5,DRAGON:.5,STEEL:2},
+ WATER:{FIRE:2,WATER:.5,GRASS:.5,GROUND:2,ROCK:2,DRAGON:.5},
+ ELECTRIC:{WATER:2,ELECTRIC:.5,GRASS:.5,GROUND:0,FLYING:2,DRAGON:.5},
+ GRASS:{FIRE:.5,WATER:2,GRASS:.5,POISON:.5,GROUND:2,FLYING:.5,BUG:.5,ROCK:2,DRAGON:.5,STEEL:.5},
+ ICE:{FIRE:.5,WATER:.5,GRASS:2,ICE:.5,GROUND:2,FLYING:2,DRAGON:2,STEEL:.5},
+ FIGHTING:{NORMAL:2,ICE:2,POISON:.5,FLYING:.5,PSYCHIC:.5,BUG:.5,ROCK:2,GHOST:0,DARK:2,STEEL:2,FAIRY:.5},
+ POISON:{GRASS:2,POISON:.5,GROUND:.5,ROCK:.5,GHOST:.5,STEEL:0,FAIRY:2},
+ GROUND:{FIRE:2,ELECTRIC:2,GRASS:.5,POISON:2,FLYING:0,BUG:.5,ROCK:2,STEEL:2},
+ FLYING:{ELECTRIC:.5,GRASS:2,FIGHTING:2,BUG:2,ROCK:.5,STEEL:.5},
+ PSYCHIC:{FIGHTING:2,POISON:2,PSYCHIC:.5,DARK:0,STEEL:.5},
+ BUG:{FIRE:.5,GRASS:2,FIGHTING:.5,POISON:.5,FLYING:.5,PSYCHIC:2,GHOST:.5,DARK:2,STEEL:.5,FAIRY:.5},
+ ROCK:{FIRE:2,ICE:2,FIGHTING:.5,GROUND:.5,FLYING:2,BUG:2,STEEL:.5},
+ GHOST:{NORMAL:0,PSYCHIC:2,GHOST:2,DARK:.5},
+ DRAGON:{DRAGON:2,STEEL:.5,FAIRY:0},
+ DARK:{FIGHTING:.5,PSYCHIC:2,GHOST:2,DARK:.5,FAIRY:.5},
+ STEEL:{FIRE:.5,WATER:.5,ELECTRIC:.5,ICE:2,ROCK:2,STEEL:.5,FAIRY:2},
+ FAIRY:{FIRE:.5,FIGHTING:2,POISON:.5,DRAGON:2,DARK:2,STEEL:.5}
+};
+const vs=(atk,d1,d2)=>{const t=EF[atk]||{};let m=t[d1]??1;if(d2)m*=t[d2]??1;return m;};
+const melhorVs=(meus,alvo)=>Math.max(...meus.map(a=>vs(a,alvo.t1,alvo.t2)));
+const FAIXAS=[1,10,20,30,40,50,60,80,100,150,300,450,550,700];
+
+function fichaDe(nome){
+  const k=chave(nome); if(!k) return null;
+  if(E[k]) return E[k];
+  const alvo=Object.keys(E).find(x=>x.startsWith(k));
+  return alvo?E[alvo]:null;
+}
+/* dano relativo do melhor golpe disponivel naquele nivel */
+function melhorGolpe(ficha,nv,alvo){
+  const meus=[ficha.t1,ficha.t2].filter(Boolean);
+  let top=null;
+  for(const g of ficha.gol||[]){
+    const [n,t,pw,cat,lv]=g;
+    if(lv>nv||!pw||cat==="T") continue;
+    const ef=vs(t,alvo.t1,alvo.t2);
+    if(ef===0) continue;
+    const stab=meus.includes(t)?1.5:1;
+    const dano=pw*ef*stab;
+    if(!top||dano>top.dano) top={nome:n,tipo:t,pw,ef,dano};
+  }
+  return top;
+}
+const FICHA_ALVO=a=>fichaDe(a.nome);
+
+function renderJornada(){
+  const info=document.getElementById("meu-info"), caixa=document.getElementById("escada");
+  const ficha=fichaDe(document.getElementById("meu").value);
+  const nv=+document.getElementById("meunv").value||1;
+  if(!ficha){
+    info.textContent=document.getElementById("meu").value.trim()?"Não encontrei esse Pokémon.":"";
+    caixa.innerHTML='<div class="card">Digite o nome do seu Pokémon acima para montar a escada.</div>';
+    return;
+  }
+  const meus=[ficha.t1,ficha.t2].filter(Boolean);
+  const disp=(ficha.gol||[]).filter(g=>g[4]<=nv&&g[2]&&g[3]!=="T");
+  const maior=disp.reduce((a,g)=>Math.max(a,g[2]),0);
+  info.innerHTML=`<strong>${ficha.nome}</strong> · <span class="tipo">${meus.join(" / ")}</span> · `+
+    `<strong>${disp.length}</strong> golpe${disp.length===1?"":"s"} de dano no nível ${nv} (maior poder: ${maior||"—"})`+
+    (ficha.evo&&ficha.evoNv?` · evolui para <strong>${ficha.evo}</strong> no nível ${ficha.evoNv}`:"");
+  if(!disp.length){ caixa.innerHTML='<div class="card">Nesse nível ele ainda não tem golpe de dano.</div>'; return; }
+
+  const blocos=FAIXAS.map(f=>{
+    const cands=H.filter(h=>h.nivel===f&&h.nome!==ficha.nome).map(h=>{
+      const fa=FICHA_ALVO(h);
+      const g=melhorGolpe(ficha,nv,h);
+      if(!g) return null;
+      const hp=fa&&fa.st?fa.st[0]:60;
+      const xp=fa?fa.xp:null;
+      return {h,g,xp,ef:g.ef,pont:xp?xp*g.dano/hp:0};
+    }).filter(Boolean);
+    if(!cands.length) return null;
+    const max=Math.max(...cands.map(c=>c.pont));
+    cands.forEach(c=>c.rel=max?Math.round(c.pont/max*100):0);
+    cands.sort((a,b)=>b.pont-a.pont||b.ef-a.ef);
+    return {f,cands:cands.slice(0,4)};
+  }).filter(Boolean);
+
+  caixa.innerHTML=blocos.map(b=>{
+    const idx=FAIXAS.indexOf(b.f);
+    const atual=nv>=b.f&&nv<(FAIXAS[idx+1]||1e9);
+    const futuro=b.f>nv;
+    return `<div class="item-linha" style="${atual?"border-color:var(--gold)":futuro?"opacity:.7":""}">
+      <h3>Nível ${b.f}
+        ${atual?'<span class="pill" style="color:var(--gold)">você está aqui</span>':""}
+        ${futuro?'<span class="pill">quando chegar</span>':""}
+        <span class="contagem">${AREAS[b.cands[0].h.area]||b.cands[0].h.area}</span></h3>
+      <div class="scroller"><table class="tbl" style="margin-top:4px">
+        <thead><tr><th>Alvo</th><th>Melhor golpe seu</th><th>Efeito</th><th>XP</th><th>Eficiência</th></tr></thead>
+        <tbody>${b.cands.map(c=>`<tr>
+          <td><strong>${c.h.nome}</strong> <span class="tipo">${[c.h.t1,c.h.t2].filter(Boolean).join("/")}</span></td>
+          <td>${c.g.nome} <span class="tipo">${c.g.tipo} ${c.g.pw}</span></td>
+          <td class="n" style="color:${c.ef>=2?"var(--ok)":c.ef<1?"var(--stop)":"var(--ink-2)"}">${c.ef}×</td>
+          <td class="n">${c.xp!=null?c.xp.toLocaleString("pt-BR"):"—"}</td>
+          <td class="n">${c.rel}</td></tr>`).join("")}</tbody>
+      </table></div>
+    </div>`;
+  }).join("")||'<div class="card">Nenhum alvo alcançável.</div>';
+}
+
+document.getElementById("meu").addEventListener("input",renderJornada);
+document.getElementById("meunv").addEventListener("input",renderJornada);
 document.getElementById("q").addEventListener("input",e=>{termo=norm(e.target.value.trim());render();});
 document.getElementById("area").addEventListener("change",e=>{fArea=e.target.value;render();});
 document.getElementById("rar").addEventListener("change",e=>{fRar=e.target.value;render();});
@@ -210,7 +336,8 @@ document.getElementById("aba").addEventListener("click",e=>{
   [...e.currentTarget.children].forEach(x=>x.setAttribute("aria-pressed",x===b));
   document.getElementById("v-hunts").hidden=aba!=="hunts";
   document.getElementById("v-itens").hidden=aba!=="itens";
-  render();
+  document.getElementById("v-jornada").hidden=aba!=="jornada";
+  if(aba==="jornada") renderJornada(); else render();
 });
 document.getElementById("tema").addEventListener("click",()=>{
   const r=document.documentElement;
