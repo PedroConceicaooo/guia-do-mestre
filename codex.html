@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/tema.js"></script>
 <script src="assets/icones.js"></script>
+<script src="assets/sprites.js"></script>
 <style>
 .barra{position:sticky;top:53px;z-index:30;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:13px 15px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
 .busca{display:flex;align-items:center;gap:7px;flex:1 1 200px;min-width:0;background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:0 10px}
@@ -141,7 +142,7 @@
 
 <footer><div class="in">
   <span>Guia do Mestre · feito por <strong>PHMESTRE</strong> · <strong>NUOT</strong></span>
-  <span>Guia não oficial. Sem vínculo com PokeWG, Nintendo ou Game Freak.</span>
+  <span>Guia não oficial. Sem vínculo com PokeWG, Nintendo ou Game Freak.<br><span class="creditos-img">Imagens dos Pokémon via PokéAPI · © Nintendo, Game Freak, Creatures.</span></span>
 </div></footer>
 
 <script>
@@ -264,7 +265,7 @@ function render(){
         const info=[e.raridade||"", e.valor?("vale "+e.valor.toLocaleString("pt-BR")):""].filter(Boolean).join(" · ");
         const dica=[trava?"travado até os outros alcançarem":alvo?"próximo registro válido":"", info].filter(Boolean).join(" — ");
         return `<span class="esp ${alvo?"alvo":""} ${trava?"trava":""}" title="${dica}">
-          <b>${e.nome}</b>${nvTxt?`<span class="nv">${nvTxt}</span>`:""}
+          ${SPR.mini(e.id)}<b>${e.nome}</b>${nvTxt?`<span class="nv">${nvTxt}</span>`:""}
           <span class="pips">`+[1,2,3,4].map(k=>
             `<button class="pip" data-t="${k}" data-on="${t>=k?1:0}" data-esp="${e.nome}" data-k="${k}" title="Tier ${k}">${k}</button>`
           ).join("")+`</span></span>`;

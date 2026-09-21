@@ -185,3 +185,84 @@ footer strong{color:var(--ink-2)}
 .ti{width:11px;height:11px;flex:none}
 .tp{padding-left:6px}
 .brand .logo{width:25px;height:25px;color:var(--gold);flex:none}
+
+/* ---------------------------------------------------------------
+   Imagens dos Pokémon (PokéAPI) e cartões da Jornada
+   --------------------------------------------------------------- */
+.spr{width:32px;height:32px;flex:none;image-rendering:pixelated;vertical-align:middle;margin:-6px 2px -6px -4px}
+.spr.sem{display:inline-block;visibility:hidden}
+img.sem{visibility:hidden}
+.pknome{display:inline-flex;align-items:center;gap:4px}
+
+.melhores{display:flex;gap:9px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px;scrollbar-width:thin}
+.mini-card{flex:0 0 118px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:9px 8px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px}
+.mini-card.aqui{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.mini-card .arte{width:64px;height:64px}
+.mini-card b{font-size:13.5px}
+.mini-card small{font-size:11px;color:var(--ink-3);font-family:"JetBrains Mono",monospace}
+
+.faixa{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 16px 16px;margin-bottom:14px}
+.faixa.aqui{border-color:var(--gold)}
+.faixa.depois{opacity:.78}
+.faixa-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.faixa-h h3{font-size:18px}
+.faixa-h .sub{font-size:12.5px;color:var(--ink-3)}
+.faixa-h .melhor-tag{margin-left:auto;font-size:11.5px;font-weight:600;color:var(--ok);background:var(--ok-soft,var(--panel-2));border:1px solid var(--ok);border-radius:99px;padding:3px 10px}
+
+.cards{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(148px,1fr))}
+.pk{position:relative;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:12px 10px 11px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;transition:transform .15s,border-color .15s}
+.pk:hover{transform:translateY(-2px);border-color:var(--ink-3)}
+.pk.top{border-color:var(--ok);box-shadow:0 0 0 1px var(--ok),0 6px 22px -10px var(--ok)}
+.pk .arte{width:88px;height:88px;object-fit:contain;filter:drop-shadow(0 4px 6px rgba(0,0,0,.25))}
+.pk .nm{font-weight:700;font-size:14.5px;line-height:1.1}
+.pk .tps{display:flex;gap:3px;flex-wrap:wrap;justify-content:center}
+.pk .tps .tp+.tp{margin-left:0}
+.pk .atk{font-size:11.5px;color:var(--ink-2);border:1px solid var(--line);border-radius:7px;padding:3px 7px;width:100%;background:var(--panel)}
+.pk .atk b{color:var(--ink)}
+.efp{width:100%;display:flex;justify-content:space-between;align-items:center;border-radius:8px;padding:5px 9px;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border:1px solid}
+.efp strong{font-family:"Bricolage Grotesque",sans-serif;font-size:17px;letter-spacing:0}
+.efp.s{color:var(--ok);border-color:var(--ok);background:var(--ok-soft,transparent)}
+.efp.n{color:var(--t2);border-color:var(--t2)}
+.efp.r{color:var(--stop);border-color:var(--stop)}
+.pk .meta{display:flex;justify-content:space-between;width:100%;font-size:11px;color:var(--ink-3);font-family:"JetBrains Mono",monospace}
+.pk .meta .v-xp{font-size:11px}
+.pk .barra-ef{width:100%;height:4px;border-radius:99px;background:var(--line);overflow:hidden}
+.pk .barra-ef i{display:block;height:100%;background:var(--hunt)}
+.eu{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.eu .arte{width:72px;height:72px}
+.creditos-img{font-size:11.5px;color:var(--ink-3)}
+/* ajustes dos cartões: etiquetas compactas numa linha, mini-cartões mais largos */
+.pk .tps{flex-wrap:nowrap}
+.pk .tp{font-size:9px;padding:1px 5px 1px 4px;gap:3px;letter-spacing:.04em}
+.pk .tp .ti{width:9px;height:9px}
+.mini-card{flex-basis:132px}
+.mini-card small{white-space:nowrap}
+
+/* ---------------------------------------------------------------
+   Arte de fundo: uma por tema. A imagem aparece no topo e some sob
+   um véu na direção do conteúdo, para não atrapalhar a leitura.
+   --------------------------------------------------------------- */
+:root{
+  --fundo-img:url("img/fundo-claro.webp");
+  --fundo-veu:linear-gradient(180deg,rgba(242,245,249,.08) 0,rgba(242,245,249,.62) 400px,rgba(242,245,249,.93) 85vh);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-tema="claro"]){
+    --fundo-img:url("img/fundo-escuro.webp");
+    --fundo-veu:linear-gradient(180deg,rgba(11,18,32,.12) 0,rgba(11,18,32,.66) 400px,rgba(11,18,32,.95) 85vh);
+  }
+}
+:root[data-tema="escuro"]{
+  --fundo-img:url("img/fundo-escuro.webp");
+  --fundo-veu:linear-gradient(180deg,rgba(11,18,32,.12) 0,rgba(11,18,32,.66) 400px,rgba(11,18,32,.95) 85vh);
+}
+body{position:relative;isolation:isolate}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:var(--fundo-veu),var(--fundo-img) center top/cover no-repeat,var(--ground);
+}
+/* topo translúcido deixa a arte respirar atrás da navegação */
+.top{background:color-mix(in srgb,var(--panel) 78%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+/* título das páginas ganha leve sombra para ler sobre a arte */
+main>h1,main>.eyebrow,main>.lead,.abre h1,.abre .lead,.abre .eyebrow{text-shadow:0 1px 2px var(--ground),0 0 18px color-mix(in srgb,var(--ground) 70%,transparent)}
+footer{background:color-mix(in srgb,var(--ground) 88%,transparent)}

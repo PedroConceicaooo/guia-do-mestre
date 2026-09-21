@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/tema.js"></script>
 <script src="assets/icones.js"></script>
+<script src="assets/sprites.js"></script>
 <style>
 .barra{position:sticky;top:53px;z-index:30;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:13px 15px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
 .busca{display:flex;align-items:center;gap:7px;flex:1 1 190px;min-width:0;background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:0 10px}
@@ -136,7 +137,7 @@ select{background:var(--panel-2);color:var(--ink);border:1px solid var(--line);b
 
 <footer><div class="in">
   <span>Guia do Mestre · feito por <strong>PHMESTRE</strong> · <strong>NUOT</strong></span>
-  <span>Guia não oficial. Sem vínculo com PokeWG, Nintendo ou Game Freak.</span>
+  <span>Guia não oficial. Sem vínculo com PokeWG, Nintendo ou Game Freak.<br><span class="creditos-img">Imagens dos Pokémon via PokéAPI · © Nintendo, Game Freak, Creatures.</span></span>
 </div></footer>
 
 <script>
@@ -189,7 +190,7 @@ function render(){
     const L=filtrados();
     document.getElementById("k-qtd").textContent=L.length;
     document.getElementById("corpo").innerHTML=L.length?L.map(h=>`<tr>
-      <td><strong>${h.nome}</strong></td>
+      <td><span class="pknome">${SPR.mini(h.speciesId)}<strong>${h.nome}</strong></span></td>
       <td class="n">${h.nivel}</td>
       <td><span class="area">${AREAS[h.area]||h.area}</span></td>
       <td>${badges(h.t1,h.t2)}</td>
@@ -210,7 +211,7 @@ function render(){
           ${universal?'<span class="pill">cai de quase todo mundo</span>':""}
           <span class="contagem">${fontes.length} fonte${fontes.length>1?"s":""}</span></h3>
         <div class="fontes">${fontes.slice(0,24).map((f,k)=>`<span class="fonte ${k===0&&!universal?"melhor":""}">
-          <b>${f.nome}</b>${badges(f.t1,f.t2)}<span class="nv">nv ${f.nivel} · ${AREAS[f.area]||f.area}</span></span>`).join("")}
+          ${SPR.mini(f.speciesId)}<b>${f.nome}</b>${badges(f.t1,f.t2)}<span class="nv">nv ${f.nivel} · ${AREAS[f.area]||f.area}</span></span>`).join("")}
           ${fontes.length>24?`<span class="fonte"><span class="nv">+${fontes.length-24} outros</span></span>`:""}</div>
       </div>`;
     }).join(""):'<div class="card">Nenhum item encontrado.</div>';
@@ -279,9 +280,9 @@ function renderJornada(){
   const meus=[ficha.t1,ficha.t2].filter(Boolean);
   const disp=(ficha.gol||[]).filter(g=>g[4]<=nv&&g[2]&&g[3]!=="T");
   const maior=disp.reduce((a,g)=>Math.max(a,g[2]),0);
-  info.innerHTML=`<strong>${ficha.nome}</strong> ${badges(ficha.t1,ficha.t2)} · `+
+  info.innerHTML=`<span class="eu">${SPR.arte(ficha.id,ficha.nome)}<span><strong style="font-size:17px">${ficha.nome}</strong> ${badges(ficha.t1,ficha.t2)}<br>`+
     `<strong>${disp.length}</strong> golpe${disp.length===1?"":"s"} de dano no nível ${nv} (maior poder: ${maior||"—"})`+
-    (ficha.evo&&ficha.evoNv?` · evolui para <strong>${ficha.evo}</strong> no nível ${ficha.evoNv}`:"");
+    (ficha.evo&&ficha.evoNv?` · evolui para <strong>${ficha.evo}</strong> no nível ${ficha.evoNv}`:"")+`</span></span>`;
   if(!disp.length){ caixa.innerHTML='<div class="card">Nesse nível ele ainda não tem golpe de dano.</div>'; return; }
 
   const blocos=FAIXAS.map(f=>{
@@ -297,27 +298,32 @@ function renderJornada(){
     const max=Math.max(...cands.map(c=>c.pont));
     cands.forEach(c=>c.rel=max?Math.round(c.pont/max*100):0);
     cands.sort((a,b)=>b.pont-a.pont||b.ef-a.ef);
-    return {f,cands:cands.slice(0,4)};
+    return {f,cands:cands.slice(0,6)};
   }).filter(Boolean);
 
-  caixa.innerHTML=blocos.map(b=>{
-    const idx=FAIXAS.indexOf(b.f);
-    const atual=nv>=b.f&&nv<(FAIXAS[idx+1]||1e9);
-    const futuro=b.f>nv;
-    return `<div class="item-linha" style="${atual?"border-color:var(--gold)":futuro?"opacity:.7":""}">
-      <h3>Nível ${b.f}
-        ${atual?'<span class="pill" style="color:var(--gold)">você está aqui</span>':""}
-        ${futuro?'<span class="pill">quando chegar</span>':""}
-        <span class="contagem">${AREAS[b.cands[0].h.area]||b.cands[0].h.area}</span></h3>
-      <div class="scroller"><table class="tbl" style="margin-top:4px">
-        <thead><tr><th>Alvo</th><th>Melhor golpe seu</th><th>Efeito</th><th>XP</th><th>Eficiência</th></tr></thead>
-        <tbody>${b.cands.map(c=>`<tr>
-          <td><strong>${c.h.nome}</strong><br>${badges(c.h.t1,c.h.t2)}</td>
-          <td>${c.g.nome}<br>${badge(c.g.tipo)}<span class="tipo"> poder ${c.g.pw}</span></td>
-          <td class="n" style="color:${c.ef>=2?"var(--ok)":c.ef<1?"var(--stop)":"var(--ink-2)"}">${c.ef}×</td>
-          <td class="n v-xp">${c.xp!=null?c.xp.toLocaleString("pt-BR"):"—"}</td>
-          <td class="n"><span class="v-ef">${c.rel}</span><i class="efbar" style="width:${c.rel}%"></i></td></tr>`).join("")}</tbody>
-      </table></div>
+  { const iAtual=FAIXAS.reduce((a,f,i)=>nv>=f?i:a,0); for(let i=blocos.length-1;i>=0;i--) if(FAIXAS.indexOf(blocos[i].f)<iAtual) blocos.splice(i,1); }
+  const efClasse=ef=>ef>=2?["s","Super efetivo"]:ef<1?["r","Resistido"]:["n","Dano neutro"];
+  const faixaAtual=b=>{const i=FAIXAS.indexOf(b.f);return nv>=b.f&&nv<(FAIXAS[i+1]||1e9);};
+  const topo=`<div class="melhores">${blocos.map(b=>{const c=b.cands[0];return `
+    <div class="mini-card ${faixaAtual(b)?"aqui":""}">${SPR.arte(c.h.speciesId,c.h.nome)}
+      <b>${c.h.nome}</b><small>Nv ${b.f} · ${c.g.tipo[0]+c.g.tipo.slice(1).toLowerCase()} ×${c.ef}</small></div>`;}).join("")}</div>`;
+  caixa.innerHTML=(blocos.length?topo:"")+blocos.map(b=>{
+    const atual=faixaAtual(b), futuro=b.f>nv;
+    return `<div class="faixa ${atual?"aqui":futuro?"depois":""}">
+      <div class="faixa-h"><h3>Faixa nível ${b.f}</h3>
+        ${atual?'<span class="pill" style="color:var(--gold)">você está aqui</span>':futuro?'<span class="pill">quando chegar</span>':""}
+        <span class="sub">${AREAS[b.cands[0].h.area]||b.cands[0].h.area} · ordenado por eficiência</span>
+        <span class="melhor-tag">Melhor: ${b.cands[0].h.nome}</span></div>
+      <div class="cards">${b.cands.map((c,i)=>{const [k,rot]=efClasse(c.ef);return `
+        <div class="pk ${i===0?"top":""}">
+          ${SPR.arte(c.h.speciesId,c.h.nome)}
+          <span class="nm">${c.h.nome}</span>
+          <span class="tps">${badges(c.h.t1,c.h.t2)}</span>
+          <span class="atk">Atacar com <b>${c.g.nome}</b></span>
+          <span class="efp ${k}">${rot}<strong>×${String(c.ef).replace(".",",")}</strong></span>
+          <span class="meta"><span>XP <span class="v-xp">${c.xp!=null?c.xp.toLocaleString("pt-BR"):"—"}</span></span><span>efic. ${c.rel}</span></span>
+          <span class="barra-ef"><i style="width:${c.rel}%"></i></span>
+        </div>`;}).join("")}</div>
     </div>`;
   }).join("")||'<div class="card">Nenhum alvo alcançável.</div>';
 }
